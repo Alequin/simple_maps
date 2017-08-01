@@ -26,6 +26,10 @@ MapWrapper.prototype.addMarker = function(coords){
   this.markers.push(marker);
 };
 
+MapWrapper.prototype.setCurrentPosition = function(nav){
+  nav.geolocation.getCurrentPosition(this.setPos.bind(this));
+}
+
 MapWrapper.prototype.setPos = function(position){
   var coords = {
     center: {lat: position.coords.latitude, lng: position.coords.longitude},
