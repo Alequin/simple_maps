@@ -34,6 +34,13 @@ function initialize(){
 
     mainMap.centerAt(pos);
   });
+
+  var currentPosButton = document.querySelector("#current-location-button");
+  var nav = navigator;
+  currentPosButton.addEventListener("click", function(){
+    // alert("hello");
+    mainMap.setCurrentPosition(navigator);
+  });
 }
 
 window.addEventListener("load", initialize);
