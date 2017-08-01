@@ -31,10 +31,6 @@ MapWrapper.prototype.setCurrentPosition = function(nav){
 }
 
 MapWrapper.prototype.setPos = function(position){
-  var coords = {
-    center: {lat: position.coords.latitude, lng: position.coords.longitude},
-    zoom: 12,
-  }
   var container = document.querySelector("#main-map");
   this.googleMap.setCenter({lat: position.coords.latitude, lng: position.coords.longitude});
 };
