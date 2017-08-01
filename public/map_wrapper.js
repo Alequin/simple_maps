@@ -22,14 +22,14 @@ MapWrapper.prototype.addMarker = function(coords){
   marker.addListener("click", function(){
     infoWindow.open(this.googleMap, this);
   })
-  
+
   this.markers.push(marker);
 };
 
 MapWrapper.prototype.setPos = function(position){
   var coords = {
     center: {lat: position.coords.latitude, lng: position.coords.longitude},
-    zoom: 15,
+    zoom: 12,
   }
   var container = document.querySelector("#main-map");
   this.googleMap.setCenter({lat: position.coords.latitude, lng: position.coords.longitude});
@@ -50,4 +50,8 @@ MapWrapper.prototype.bounceMarkers = function(){
   this.markers.forEach(function(marker){
     marker.setAnimation(google.maps.Animation.BOUNCE);
   });
+};
+
+MapWrapper.prototype.centerAt = function(position){
+  this.googleMap.setCenter(position);
 };
