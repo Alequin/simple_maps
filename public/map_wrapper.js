@@ -14,6 +14,15 @@ MapWrapper.prototype.addMarker = function(coords){
     position: coords,
     map: this.googleMap,
   });
+
+  var infoWindow = new google.maps.InfoWindow({
+    content: coords.lat + " / " + coords.lng,
+  });
+
+  marker.addListener("click", function(){
+    infoWindow.open(this.googleMap, this);
+  })
+  
   this.markers.push(marker);
 };
 
